@@ -47,7 +47,7 @@ type Componenter interface {
 	Register(token string, opts ...RegisterOption) error
 
 	// Start the platform component. Connects to nats and starts the heartbeat and logging services
-	Start(ctx context.Context) error
+	Start(ctx context.Context, opts ...nats.Option) error
 
 	// Stop the platform component. Will drain and close the nats connection
 	Stop() error
@@ -160,14 +160,16 @@ func (b *base) Register(token string, opts ...RegisterOption) error {
 	return nil
 }
 
-func (b *base) Start(ctx context.Context) error {
+func (b *base) Start(ctx context.Context, opts ...nats.Option) error {
 	if b.nc != nil && b.nc.IsConnected() {
 		b.logger.Warn("platform component already connected")
 	}
 
 	b.logger.Info("connecting to nats", "server", b.cr.Server)
 
-	nc, err := nats.Connect(b.cr.Server, nats.Name(fmt.Sprintf("platform component %s", b.cType)), nats.UserJWTAndSeed(b.cr.JWT, string(b.userKey.Seed)))
+	opts = append(opts, nats.Name(fmt.Sprintf("platform component %s", b.cType)), nats.UserJWTAndSeed(b.cr.JWT, string(b.userKey.Seed)))
+
+	nc, err := nats.Connect(b.cr.Server, opts...)
 	if err != nil {
 		return err
 	}
