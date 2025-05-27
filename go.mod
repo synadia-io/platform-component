@@ -1,4 +1,4 @@
-module github.com/ConnectEverything/platform-component
+module github.com/synadia-io/platform-component
 
 go 1.24.2
 

@@ -15,7 +15,7 @@ import (
 	"github.com/nats-io/nats.go"
 	"github.com/nats-io/nkeys"
 
-	"github.com/ConnectEverything/platform-component/pkg/keys"
+	"github.com/synadia-io/platform-component/pkg/keys"
 )
 
 const (
