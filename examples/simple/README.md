@@ -47,14 +47,15 @@ pcm_...
 SCP_URL=http://localhost:3000
 SCP_PLATFORM_TOKEN=pcm_...  # value from previous step
 
-❯ go run .
-{"time":"2025-09-30T11:25:08.922258-06:00","level":"INFO","msg":"connecting to platform","server":"http://localhost:3000","user":"UBYZUHBTU4HPSKXLD5ILNIJWZCXRYU2VMRCWQABIBNRPWQVYVDMBOBCP"}
-{"time":"2025-09-30T11:25:08.968557-06:00","level":"INFO","msg":"register request success!"}
-{"time":"2025-09-30T11:25:08.968569-06:00","level":"WARN","msg":"control plane returned config data but no destination supplied"}
-{"time":"2025-09-30T11:25:08.968573-06:00","level":"INFO","msg":"connecting to nats","server":"nats://localhost:14222"}
-{"time":"2025-09-30T11:25:08.974985-06:00","level":"INFO","msg":"connected"}
-2025/09/30 11:25:08 message published
-{"time":"2025-09-30T11:25:08.975009-06:00","level":"INFO","msg":"stopping platform component"}
-{"time":"2025-09-30T11:25:08.975034-06:00","level":"INFO","msg":"starting heartbeat"}
-{"time":"2025-09-30T11:25:08.975099-06:00","level":"INFO","msg":"heartbeat stopped"}
-```
+❯ go run . 
+{"time":"2025-09-30T11:34:20.080675-06:00","level":"INFO","msg":"connecting to platform","server":"http://localhost:3000","user":"UDBP5RBPTH324YXO6E2LF66NLL5RDOQJAFK5ZVJNDT2IVBJBW4Y3J4N5"}
+{"time":"2025-09-30T11:34:20.160405-06:00","level":"INFO","msg":"register request success!"}
+2025/09/30 11:34:20 registered platform component:
+2025/09/30 11:34:20     account: 33QcznPkcddQDB521egJuOYObje
+2025/09/30 11:34:20     nexus name: nexus
+{"time":"2025-09-30T11:34:20.160469-06:00","level":"INFO","msg":"connecting to nats","server":"nats://localhost:14222"}
+{"time":"2025-09-30T11:34:20.165657-06:00","level":"INFO","msg":"connected"}
+2025/09/30 11:34:20 message published
+{"time":"2025-09-30T11:34:20.165681-06:00","level":"INFO","msg":"stopping platform component"}
+{"time":"2025-09-30T11:34:20.165691-06:00","level":"INFO","msg":"starting heartbeat"}
+{"time":"2025-09-30T11:34:20.165694-06:00","level":"INFO","msg":"heartbeat stopped"}```
