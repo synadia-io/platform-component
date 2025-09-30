@@ -8,6 +8,9 @@ After connecting, the example publishes a single NATS messages and closes the co
 
 1. Create workloads platform component for a system. This also creates a platform component token. If a config is not specified, the default control account is used and a default nexus name of "nexus" is used.
 
+> [!NOTE]  
+> The default control account is created the first time a platform component tries to connect without specifying an account.
+
 ```shell
 ❯ SYSTEM_ID=33E4oTxAbbLsPmeFZBySaK2MaIC
 
