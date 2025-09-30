@@ -6,18 +6,19 @@ After connecting, the example publishes a single NATS messages and closes the co
 
 ---
 
-1. Create workloads platform component. This also creates a platform component token. If a config is not specified, the default control account is used and a default nexus name of "nexus" is used.
+1. Create workloads platform component for a system. This also creates a platform component token. If a config is not specified, the default control account is used and a default nexus name of "nexus" is used.
 
 ```shell
 ❯ SYSTEM_ID=33E4oTxAbbLsPmeFZBySaK2MaIC
 
+# returns HTTP 204 if succesfful
 ❯ curl -X PATCH "$SCP_URL/api/core/beta/systems/$SYSTEM_ID/platform-components" \
  -H "Authorization: Bearer $SCP_API_TOKEN" \
  -H 'content-type: application/json' \
  -d '{"config":{},"enabled":true,"type":"workloads"}'
 ```
 
-2. Get the platform component ID from the system response
+2. Get the platform component ID from the system response.
 ```shell
 ❯ curl -X GET "http://localhost:3000/api/core/beta/systems/$SYSTEM_ID" \
  -H "Authorization: Bearer $SCP_API_TOKEN" \
@@ -26,7 +27,7 @@ After connecting, the example publishes a single NATS messages and closes the co
 33QczjmtKwvOxKwxIOSPKXBzhnC
 ```
 
-3. Use the platform component ID to get the token value
+3. Use the platform component ID to get the platform component token.
 
 ```shell
 ❯ PLATFORM_ID=33QVUSQNH3uE3LAWX7L7Zu1NEeb
@@ -38,7 +39,7 @@ After connecting, the example publishes a single NATS messages and closes the co
 pcm_...
 ```
 
-4. Use token with the service to connect/register with SCP.
+4. Use the platform component token with the example service to connect and register with Control Plane.
 
 
 ```shell
