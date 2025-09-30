@@ -10,6 +10,7 @@ After connecting, the example publishes a single NATS messages and closes the co
 
 ```shell
 ❯ SYSTEM_ID=33E4oTxAbbLsPmeFZBySaK2MaIC
+
 ❯ curl -X PATCH "$SCP_URL/api/core/beta/systems/$SYSTEM_ID/platform-components" \
  -H "Authorization: Bearer $SCP_API_TOKEN" \
  -H 'content-type: application/json' \
@@ -28,8 +29,9 @@ After connecting, the example publishes a single NATS messages and closes the co
 3. Use the platform component ID to get the token value
 
 ```shell
-PLATFORM_ID=33QVUSQNH3uE3LAWX7L7Zu1NEeb
-curl -X GET "http://localhost:3000/api/core/beta/systems/$SYSTEM_ID/platform-components/$PLATFORM_ID/tokens" \
+❯ PLATFORM_ID=33QVUSQNH3uE3LAWX7L7Zu1NEeb
+
+❯ curl -X GET "http://localhost:3000/api/core/beta/systems/$SYSTEM_ID/platform-components/$PLATFORM_ID/tokens" \
  -H "Authorization: Bearer $SCP_API_TOKEN" \
  -H 'accept: application/json' | jq -r .token
 
